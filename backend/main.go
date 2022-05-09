@@ -15,7 +15,7 @@ func main() {
 	if err != nil {
 		log.Fatal("Failed to load config:", err)
 	}
-	
+
 	discord, err := discordgo.New("Bot " + config.DISCORD_TOKEN)
 
 	if err != nil {
@@ -35,6 +35,6 @@ func main() {
 	signal.Notify(stop, os.Interrupt)
 	<-stop
 	log.Println("Gracefully shutting down")
-	
+
 	defer discord.Close()
 }
